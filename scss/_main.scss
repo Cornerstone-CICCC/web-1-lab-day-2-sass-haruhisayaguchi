@@ -1,0 +1,72 @@
+@use 'variables';
+
+main {
+	padding-top: variables.$header-height;
+
+	h1 {
+		margin: 1rem 0;
+	}
+
+	h2 {
+		background-color: aqua;
+		top: variables.$header-height;
+		position: sticky;
+		margin: 1rem 0.25rem;
+	}
+
+	p {
+		margin: 0.5rem 0;
+	}
+
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (min-width: variables.$small-screen) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (min-width: variables.$middle-screen) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@media (min-width: variables.$large-screen) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	figure {
+		position: relative;
+
+		figcaption {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+
+		&:hover {
+			figcaption {
+				display: inline;
+				color: red;
+			}
+		}
+	}
+
+	.back-to-top-btn {
+		background-color: black;
+		width: 8rem;
+		height: 3rem;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		a {
+			color: white;
+		}
+	}
+
+}
